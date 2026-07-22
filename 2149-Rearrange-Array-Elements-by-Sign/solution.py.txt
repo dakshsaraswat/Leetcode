@@ -1,0 +1,19 @@
+class Solution:
+    def rearrangeArray(self, nums: list[int]) -> list[int]:
+        # Pre-allocate memory for the final array to optimize performance
+        ans = [0] * len(nums)
+        
+        # Track next available positions for positive and negative integers
+        pos_idx = 0
+        neg_idx = 1
+        
+        # Distribute numbers to their correct positions in one pass
+        for num in nums:
+            if num > 0:
+                ans[pos_idx] = num
+                pos_idx += 2
+            else:
+                ans[neg_idx] = num
+                neg_idx += 2
+                
+        return ans
