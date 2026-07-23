@@ -1,0 +1,11 @@
+class Solution:
+    def largestOddNumber(self, num: str) -> str:
+        # Traverse the string from right to left
+        for i in range(len(num) - 1, -1, -1):
+            # Check if the current character represents an odd digit
+            if int(num[i]) % 2 != 0:
+                # Return the substring from the beginning up to this character
+                return num[:i + 1]
+        
+        # If no odd digit is found, return an empty string
+        return ""
