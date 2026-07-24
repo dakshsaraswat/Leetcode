@@ -1,0 +1,13 @@
+import collections
+
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        # Step 1: Count frequency of each character
+        counts = collections.Counter(s)
+        
+        # Step 2: Build the resulting string based on frequency
+        result = []
+        for char, freq in counts.most_common():
+            result.append(char * freq)
+            
+        return "".join(result)
